@@ -1,0 +1,17 @@
+{
+  "listeners": {
+    "*:8300": {
+      "application": "symfony"
+    }
+  },
+  "applications": {
+    "symfony": {
+      "type": "php",
+      "workers": 10,
+      "root": "/symfony/public",
+      "script": "index.php",
+      "user": "www-data",
+      "group": "www-data"
+    }
+  }
+}
