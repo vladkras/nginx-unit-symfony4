@@ -1,9 +1,16 @@
-# Docker image with NGINX Unit and Symfony 4 skeleton project
+# Docker image with NGINX Unit and Symfony 4
+
+### TL;DR
+
+1. `docker run -d -p 80:8300 -v "$(pwd)/symfony:/symfomy" vladkras/nginx-unit-symfony4`
+2. Wait
+3. `ls symfony`
 
 ### What is this
 This image uses [vladkras/nginx-unit-php7](https://hub.docker.com/r/vladkras/nginx-unit-php7/) to create [Symfony 4](https://symfony.com/4) project.
 
 > Symfony is a set of PHP Components, a Web Application framework, a Philosophy, and a Community — all working together in harmony. &copy; https://symfony.com
+
 
 > NGINX Unit is a new, lightweight, open source application server built to meet the demands of today’s dynamic and distributed applications. &copy; https://www.nginx.com
 
@@ -18,7 +25,7 @@ this command will install additional php extensions and [Composer](https://getco
 
 Wait a while and open http://localhost (or any other ip bound to your docker machine). You should see "Welcome to Symfony" page.
 
-I don't use `-d` key here for development purposes. If you add it be patient! Symfony installation may takes some time depending on your system resources and network speed.
+I don't use `-d` key here for development purposes. If you add it be patient! Symfony installation may some time depending on your system resources and network speed.
 
 Surely you need access to your code, so add volume to your command:
 
