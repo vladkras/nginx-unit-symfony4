@@ -3,7 +3,7 @@ set -e
 
 mkdir -p $INSTALL_PATH && chown -R www-data:www-data $INSTALL_PATH
 
-sudo -u www-data composer create-project symfony/skeleton $INSTALL_PATH $SYMFONY_VERSION
+su - www-data -c "composer create-project symfony/skeleton $INSTALL_PATH $SYMFONY_VERSION"
 
 /opt/unit/sbin/unitd --control unix:/var/run/control.unit.sock --modules $DESTDIR"build" --user www-data --group www-data
 

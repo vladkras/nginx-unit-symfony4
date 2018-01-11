@@ -2,7 +2,7 @@ FROM vladkras/nginx-unit-php7
 
 ENV INSTALL_PATH=/symfony SYMFONY_VERSION="4.0.*"
 
-RUN apk add --update --no-cache sudo \
+RUN apk add --update --no-cache \
 	php7-ctype \
 	php7-dom \
 	php7-xml \
@@ -17,7 +17,7 @@ RUN apk add --update --no-cache sudo \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 
 RUN addgroup -g 82 -S www-data \
-    && adduser -u 82 -D -S -G www-data www-data
+    && adduser -u 82 -D -S -s /bin/sh -G www-data www-data
 
 COPY config.json /config.json
 
