@@ -1,4 +1,5 @@
 # Docker image with NGINX Unit and Symfony 4
+[![Build Status](https://travis-ci.org/vladkras/nginx-unit-symfony4.svg?branch=master)](https://travis-ci.org/vladkras/nginx-unit-symfony4)
 
 ### TL;DR
 

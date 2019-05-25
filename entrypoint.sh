@@ -3,10 +3,12 @@ set -e
 
 mkdir -p $INSTALL_PATH && chown -R www-data:www-data $INSTALL_PATH
 
-su - www-data -c "composer create-project symfony/skeleton $INSTALL_PATH $SYMFONY_VERSION"
+echo "Installing Symfony (be patient)..."
 
-/opt/unit/sbin/unitd --control unix:/var/run/control.unit.sock --modules $DESTDIR"build" --user www-data --group www-data
+su - www-data -c "composer -vv create-project symfony/skeleton $INSTALL_PATH $SYMFONY_VERSION"
 
-curl -X PUT -d @/config.json --unix-socket /run/control.unit.sock http://localhost/
+/opt/unit/sbin/unitd --control unix:/var/run/control.unit.sock --modules $DESTDIR"modules" --user www-data --group www-data
+
+curl -X PUT -d @/config.json --unix-socket /run/control.unit.sock http://localhost/config/
 
 tail -f /var/log/unitd.log

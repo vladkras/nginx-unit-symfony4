@@ -1,6 +1,6 @@
 FROM vladkras/nginx-unit-php7
 
-ENV INSTALL_PATH=/symfony SYMFONY_VERSION="4.0.*"
+ENV INSTALL_PATH=/symfony SYMFONY_VERSION="4.1.*"
 
 RUN apk add --update --no-cache \
 	php7-ctype \
@@ -12,6 +12,7 @@ RUN apk add --update --no-cache \
 	php7-zlib \
 	php7-openssl \
 	php7-iconv \
+	php7-curl \
 	php7-session
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer

@@ -1,0 +1,11 @@
+language: bash
+
+services:
+  - docker
+
+before_install:
+  - docker build -t vladkras/nginx-unit-symfony4 .
+  - docker run --rm -it -p 80:8300 vladkras/nginx-unit-symfony4
+
+script:
+  - curl http://localhost
